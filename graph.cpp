@@ -15,16 +15,15 @@ public:
     vector<string> search(int price, string neighborhood);
 };
 
-
-
-
+//insert the edge into the adjacency list
 void Graph::insert(int price, string name, string neighborhood){
     vector<pair<string, int> > airbnbs = mp[neighborhood];
     airbnbs.push_back(make_pair(name, price));
     mp[neighborhood] = airbnbs;
 }
 
-
+//search function to search the graph for the specified price and neighborhood. Search the adjacency list
+//at the neighborhood specified and searches through that list for the prices
 vector<string> Graph::search(int price, string neighborhood) {
     vector<string> airbnbs;
     try {
@@ -41,7 +40,7 @@ vector<string> Graph::search(int price, string neighborhood) {
     return airbnbs;
 }
 
-
+//test function to print the graph
 void Graph::printWholeGraph() {
     for(auto it = mp.begin(); it != mp.end(); it++) {
         cout << it->first;
